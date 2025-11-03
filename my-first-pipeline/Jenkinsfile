@@ -5,25 +5,21 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npn install'
+        sh 'npm install'
       }
     }
-  }
-  stages {
+    
     stage('Test') {
       steps {
         sh 'npm test'
       }
     }
-  }
-  stages {
     stage('package') {
       steps {
         sh 'npm run build'
       }
     }
-  }
-    stages {
+  
     stage('version') {
       steps {
         sh 'node --version'
