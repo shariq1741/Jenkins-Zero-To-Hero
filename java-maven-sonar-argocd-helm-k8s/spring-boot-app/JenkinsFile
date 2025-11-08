@@ -60,8 +60,8 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    # 🚨 ADD: Ensure we are at the root of the cloned repository
-                   # cd java-maven-sonar-argocd-helm-k8s
+                    # 🚨 FIX: Move UP two levels to the root of the Git repository 🚨
+                    cd ../..
                     pwd  # 👈 Check what the current directory is
                     git config user.email "shariq.junaid@gmail.com"
                     git config user.name "shariq1741"
