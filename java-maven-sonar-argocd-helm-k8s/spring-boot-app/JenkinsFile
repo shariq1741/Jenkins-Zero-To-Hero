@@ -60,14 +60,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    # 🚨 FIX: Mark the current workspace as a safe directory for the Git user 🚨
                     git config --global --add safe.directory /var/lib/jenkins/workspace/javaapplication-argo
-    
-                    # 👆 Assuming /var/lib/jenkins/workspace/javaapplication-argo is the root.
-                    #    If you know the absolute path to your repo root, use that.
-    
-                    # ADD THE CD COMMAND AGAIN (It is still necessary for directory context)
-                    cd java-maven-sonar-argocd-helm-k8s
                     git config user.email "shariq.junaid@gmail.com"
                     git config user.name "shariq1741"
                     BUILD_NUMBER=${BUILD_NUMBER}
